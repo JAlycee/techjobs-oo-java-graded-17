@@ -2,53 +2,28 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class Location {
+// This is the Location class that represents the location attribute in a job listing.
+public class Location extends JobField {
 
-    private int id;
-    private static int nextId = 1;
-    private String value;
+    // Constructor for Location that takes a value (location) as a parameter and passes it to the superclass constructor.
+    public Location(String aValue) {
+        super(aValue);
 
-    public Location() {
-        id = nextId;
-        nextId++;
     }
 
-    // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
-    //  constructor should also call the empty constructor in order to initialize the 'id' field.
-
-
-    // Custom toString, equals, and hashCode methods:
-
-    @Override
-    public String toString() {
-        return value;
-    }
-
+    // Overrides the equals method to compare Location objects based on their IDs.
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Location)) return false;
-        Location location = (Location) o;
-        return getId() == location.getId();
+        if (this == o) return true; // Checks if the objects being compared are the same instance.
+        if (o == null || getClass() != o.getClass())
+            return false; // Checks if the classes of the objects being compared are the same.
+        Location that = (Location) o; // Casts the object 'o' to a Location object.
+        return getId() == that.getId(); // Compares the IDs of the two Location objects.
     }
 
+    // Overrides the hashCode method to generate a hash code based on the ID.
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getId()); // Generates a hash code based on the ID of the Location object.
     }
-
-    // Getters and Setters:
-
-    public int getId() {
-        return id;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
 }

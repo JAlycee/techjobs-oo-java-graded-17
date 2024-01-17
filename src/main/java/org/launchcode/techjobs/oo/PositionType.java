@@ -1,38 +1,27 @@
 package org.launchcode.techjobs.oo;
 
-public class PositionType {
+import java.util.Objects;
 
-    private int id;
-    private static int nextId = 1;
-    private String value;
+// This is the PositionType class that represents the position type attribute in a job listing.
+public class PositionType extends JobField {
 
-    public PositionType() {
-        id = nextId;
-        nextId++;
-    }
-
+    // Constructor for PositionType that takes a value (position type) as a parameter and passes it to the superclass constructor.
     public PositionType(String value) {
-        this();
-        this.value = value;
+        super(value);
     }
 
-    // TODO: Add a custom toString() method that returns the data stored in 'value'.
-
-    // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
-    //  their id fields match.
-
-    // Getters and Setters:
-
-    public int getId() {
-        return id;
+    // Overrides the equals method to compare PositionType objects based on their IDs.
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true; // Checks if the objects being compared are the same instance.
+        if (o == null || getClass() != o.getClass()) return false; // Checks if the classes of the objects being compared are the same.
+        PositionType that = (PositionType) o; // Casts the object 'o' to a PositionType object.
+        return getId() == that.getId(); // Compares the IDs of the two PositionType objects.
     }
 
-    public String getValue() {
-        return value;
+    // Overrides the hashCode method to generate a hash code based on the ID.
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId()); // Generates a hash code based on the ID of the PositionType object.
     }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
 }
