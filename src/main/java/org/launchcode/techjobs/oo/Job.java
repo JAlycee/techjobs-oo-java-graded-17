@@ -1,7 +1,5 @@
 package org.launchcode.techjobs.oo;
 
-import org.launchcode.techjobs.Employer;
-
 import java.util.Objects;
 
 // This is the Job class that represents a job listing with various attributes.

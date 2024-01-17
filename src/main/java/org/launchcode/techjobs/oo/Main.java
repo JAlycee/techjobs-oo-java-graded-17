@@ -1,7 +1,5 @@
 package org.launchcode.techjobs.oo;
 
-import org.launchcode.techjobs.Employer;
-
 import java.util.ArrayList;
 
 public class Main {
