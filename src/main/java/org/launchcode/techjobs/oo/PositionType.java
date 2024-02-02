@@ -10,6 +10,11 @@ public class PositionType extends JobField {
         super(value);
     }
 
+    @Override
+    protected void getValue(String value) {
+
+    }
+
     // Overrides the equals method to compare PositionType objects based on their IDs.
     @Override
     public boolean equals(Object o) {

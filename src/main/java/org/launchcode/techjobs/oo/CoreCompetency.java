@@ -5,10 +5,13 @@ import java.util.Objects;
 // This is the CoreCompetency class that represents the core competency of a job.
 public class CoreCompetency extends JobField{
 
-
     // Constructor for CoreCompetency
     public CoreCompetency(String value) {
         super(value);
+    }
+
+    @Override
+    protected void getValue(String value) {
 
     }
 

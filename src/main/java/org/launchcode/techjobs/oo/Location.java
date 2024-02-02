@@ -11,6 +11,11 @@ public class Location extends JobField {
 
     }
 
+    @Override
+    protected void getValue(String value) {
+
+    }
+
     // Overrides the equals method to compare Location objects based on their IDs.
     @Override
     public boolean equals(Object o) {

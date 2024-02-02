@@ -7,8 +7,7 @@ public class Employer extends JobField {
 
     // Constructor for Employer that takes a value (employer name) as a parameter and passes it to the superclass constructor.
     public Employer(String value) {
-        super();
-
+        super(value);
     }
 
     // Overrides the equals method to compare Employer objects based on their IDs.
@@ -24,21 +23,5 @@ public class Employer extends JobField {
     @Override
     public int hashCode() {
         return Objects.hash(getId());
-    }
-
-    public CharSequence getValue() {
-        return value;
-    }
-
-    public void setValue(CharSequence value) {
-        this.value = value;
-    }
-
-    public boolean getId() {
-        return id;
-    }
-
-    public void setId(boolean id) {
-        this.id = id;
     }
 }

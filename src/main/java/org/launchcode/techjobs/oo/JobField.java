@@ -1,10 +1,8 @@
 package org.launchcode.techjobs.oo;
 
-import java.util.Objects;
-
 // This is an abstract class called JobField, which is the base class for fields used in job listings.
 public abstract class JobField {
-    private int id; // An ID unique to each JobField instance
+    private final int id; // An ID unique to each JobField instance
     private static int nextId = 1; // A static variable to generate unique IDs for JobField instances
     private String value; // The value of the JobField
 
@@ -31,13 +29,10 @@ public abstract class JobField {
         return value; // Returns the value of the JobField
     }
 
-    // Setter method to set the value of the JobField
-    public void setValue(String value) {
-        this.value = value; // Sets the value of the JobField
-    }
-
     // Getter method to retrieve the ID of the JobField
     public int getId() {
         return id; // Returns the ID of the JobField
     }
+
+    protected abstract void getValue(String value);
 }

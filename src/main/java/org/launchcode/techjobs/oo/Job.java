@@ -30,22 +30,31 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
-
+    // Helper method for formatting field values
+    private String formatField(Object field) {
+        if (field == null) {
+            return "Data not available";
+        } else if (field instanceof JobField) {
+            String value = ((JobField) field).getValue();
+            return value.isEmpty() ? "Data not available" : value;
+        } else {
+            return field.toString();
+        }
+    }
     // Overrides the toString method to provide a formatted string representation of the Job object
     @Override
     public String toString(){
-        if (name == null){
+        if (name == null || name.isEmpty()){
             return "OOPS! This job does not seem to exist.";
         }
-        // Check if any attribute is null or empty and provide "Data not available" if true
-        return ("\n" +
-                "ID: "+ id+
-                "\nName: " + (name.isEmpty() ? "Data not available" : name) +
-                "\nEmployer: " + (employer.getValue().isEmpty() ? "Data not available" : employer) +
-                "\nLocation: " + (location.getValue().isEmpty() ? "Data not available" : location) +
-                "\nPosition Type: " + (positionType.getValue().isEmpty() ? "Data not available" : positionType)+
-                "\nCore Competency: " + (coreCompetency.getValue().isEmpty() ? "Data not available" : coreCompetency)+
-                "\n");
+        return "\n" +
+                "ID: " + id +
+                "\nName: " + formatField(name) +
+                "\nEmployer: " + formatField(employer) +
+                "\nLocation: " + formatField(location) +
+                "\nPosition Type: " + formatField(positionType) +
+                "\nCore Competency: " + formatField(coreCompetency) +
+                "\n";
     }
 
     // Overrides the equals method to compare Job objects based on their IDs
@@ -63,47 +72,25 @@ public class Job {
         return Objects.hash(id); // Generates a hash code based on the ID of the Job object.
     }
 
-
-
     // Getter methods for retrieving the attributes of a Job
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
-    }
-
     public Location getLocation() {
         return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
     }
 
     public PositionType getPositionType() {
         return positionType;
     }
 
-    public void setPositionType(PositionType positionType) {
-        this.positionType = positionType;
-    }
-
     public CoreCompetency getCoreCompetency() {
         return coreCompetency;
-    }
-
-    public void setCoreCompetency(CoreCompetency coreCompetency) {
-        this.coreCompetency = coreCompetency;
     }
 
     // Getter method for retrieving the ID of a Job
