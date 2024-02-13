@@ -84,9 +84,9 @@ public class JobTest {
     public void testToStringHandlesEmptyField() {
         Job job5 = new Job("Product tester",
                 new Employer("ACME"),
-                new Location("Desert"),
+                new Location(""),
                 new PositionType("Quality control"),
-                new CoreCompetency("Persistence"));
+                new CoreCompetency(""));
         // Dynamic ID generation
         String output = "\n"+
                 "ID: " + job5.getId() + "\n" +

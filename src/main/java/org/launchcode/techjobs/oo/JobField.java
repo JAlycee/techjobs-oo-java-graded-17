@@ -1,5 +1,7 @@
 package org.launchcode.techjobs.oo;
 
+import java.util.Objects;
+
 // This is an abstract class called JobField, which is the base class for fields used in job listings.
 public abstract class JobField {
     private final int id; // An ID unique to each JobField instance
@@ -22,6 +24,26 @@ public abstract class JobField {
     @Override
     public String toString() {
         return value; // Returns the value of the JobField as a string
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    // Generates a hash code based on the ID of the PositionType object.
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JobField jobField = (JobField) o;
+        return id == jobField.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     // Getter method to retrieve the value of the JobField
