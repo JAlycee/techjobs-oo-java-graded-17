@@ -29,10 +29,9 @@ public abstract class JobField {
         return value; // Returns the value of the JobField
     }
 
+    // Hashcode & equals methods to check when the ID fields are the same (add getter and setter) extend to each class 
     // Getter method to retrieve the ID of the JobField
     public int getId() {
         return id; // Returns the ID of the JobField
     }
-
-    protected abstract void getValue(String value);
 }
